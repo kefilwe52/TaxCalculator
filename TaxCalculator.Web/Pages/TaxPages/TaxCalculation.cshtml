@@ -1,0 +1,28 @@
+﻿@page
+@model TaxCalculationModel
+@{
+    Layout = "_Layout";
+}
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div class="form-group">
+                <label asp-for="TaxCalculation.AnnualIncome" class="control-label"></label>
+                <input asp-for="TaxCalculation.AnnualIncome" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label asp-for="SelectedPostalCodeId" class="control-label"></label>
+                <select asp-for="SelectedPostalCodeId" class="form-control">
+                    @foreach (var postalCode in Model.PostalCodeInfos)
+                    {
+                        <option value="@postalCode.Id">@postalCode.Code</option>
+                    }
+                </select>
+            </div>
+            <div></div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary"/>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+<p>
+    <a asp-page="/TaxPages/TaxCalculation">Calculate Tax</a>
+</p>
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TaxCalculation[0].PostalCodeInfoId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TaxCalculation[0].AnnualIncome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TaxCalculation[0].TaxAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TaxCalculation[0].CreatedDateTime)
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.TaxCalculation)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostalCodeInfoId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnnualIncome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaxAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDateTime)
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
