@@ -52,7 +52,7 @@ public class TaxCalculationService : ITaxCalculationService
         var tax = taxCalculator.CalculateTax(taxCalculation.AnnualIncome);
 
         taxCalculation.TaxAmount = tax;
-        taxCalculation.CreatedDateTime = DateTime.UtcNow;
+        taxCalculation.CreatedDateTime = DateTime.Now;
 
         var result = await _unitOfWork.TaxCalculationRepository.AddAsync(taxCalculation);
 
