@@ -1,4 +1,6 @@
-﻿namespace TaxCalculator.Service.Calculations;
+﻿using TaxCalculator.Entities.Entities;
+
+namespace TaxCalculator.Service.Calculations;
 
 public class FlatValueTaxCalculator : ITaxCalculator
 {
@@ -11,6 +13,13 @@ public class FlatValueTaxCalculator : ITaxCalculator
 
     public decimal CalculateTax(decimal income)
     {
-        return _taxValue;
+        decimal tax;
+
+        if (income < 200000)
+            tax = 0.05m * income;
+        else
+            tax = _taxValue;
+
+        return tax;
     }
 }
