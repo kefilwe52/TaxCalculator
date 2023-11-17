@@ -1,0 +1,32 @@
+﻿@model TaxCalculator.Web.Models.TaxCalculationRecordViewModel
+
+@{
+    ViewData["Title"] = "Create Tax Calculation Record";
+}
+
+<h1>Create Tax Calculation Record</h1>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Income)
+        @Html.EditorFor(model => model.Income, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Income)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.PostalCodeTaxTypeId)
+        @Html.DropDownListFor(model => model.PostalCodeTaxTypeId, Model.PostalCodeTaxTypes, "Select Tax Type", new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.PostalCodeTaxTypeId)
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+}
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
+}

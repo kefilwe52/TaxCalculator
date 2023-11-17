@@ -1,0 +1,25 @@
+﻿@model TaxCalculator.Web.Models.TaxCalculationRecordViewModel
+
+@{
+    ViewBag.Title = "Tax Calculation Result";
+}
+
+<h2>Tax Calculation Result</h2>
+
+<div class="result-details">
+    <dl class="row">
+        <dt class="col-sm-3">Record ID</dt>
+        <dd class="col-sm-9">@Model.Id</dd>
+
+        <dt class="col-sm-3">Income</dt>
+        <dd class="col-sm-9">@Model.Income.ToString("C")</dd>
+
+        <dt class="col-sm-3">Tax Amount</dt>
+        <dd class="col-sm-9">@Model.TaxAmount.ToString("C")</dd>
+
+        <dt class="col-sm-3">Postal Code Tax Type ID</dt>
+        <dd class="col-sm-9">@Model.PostalCodeTaxTypeId</dd>
+    </dl>
+</div>
+
+<a href="@Url.Action("Create", "TaxCalculationRecord")" class="btn btn-primary">Back to Calculator</a>
