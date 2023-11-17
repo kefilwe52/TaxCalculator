@@ -23,7 +23,7 @@ namespace TaxCalculator.Test
         }
 
         [Theory]
-        [InlineData(45000, 7441)]
+        [InlineData(50000, 7441)]
         public async Task AddTaxCalculationRecord_ProgressiveTaxType_CalculatesCorrectTax(decimal income, int postalCodeId)
         {
             // Arrange
@@ -59,7 +59,7 @@ namespace TaxCalculator.Test
         }
 
         [Theory]
-        //  [InlineData(300000)]
+        [InlineData(300000)]
         [InlineData(80000)]
         public async Task AddTaxCalculationRecord_FlatRateTaxType_CalculatesCorrectTax(decimal income)
         {
